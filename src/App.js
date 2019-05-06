@@ -5,10 +5,16 @@ import EventLists from "./EventLists";
 import "./App.css";
 
 class App extends React.Component {
+  onSubmit = event => {
+    if (event) event.preventDefault();
+    const input = event.target.children[0];
+    console.log(input.value);
+  };
+
   render() {
     return (
       <main className="App">
-        <LoginForm />
+        <LoginForm onSubmit={this.onSubmit} />
         <EventLists />
       </main>
     );
