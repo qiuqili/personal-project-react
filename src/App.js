@@ -5,17 +5,23 @@ import EventLists from "./EventLists";
 import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: "" };
+  }
+
   onSubmit = event => {
     if (event) event.preventDefault();
-    const input = event.target.children[0];
-    console.log(input.value);
+    const name = event.target.children[0].value;
+    this.setState({ name });
   };
 
   render() {
+    const { name } = this.state;
+
     return (
       <main className="App">
-        <LoginForm onSubmit={this.onSubmit} />
-        <EventLists />
+        {name ? <EventLists /> : <LoginForm onSubmit={this.onSubmit} />}
       </main>
     );
   }
