@@ -6,6 +6,7 @@ const EventLists = props => {
   return (
     <section>
       <EventList events={props.events} type="ForkEvent" />
+      <EventList events={props.events} type="PullRequestEvent" />
     </section>
   );
 };
