@@ -2,10 +2,10 @@ import React from "react";
 
 import EventList from "./EventList";
 
-const EventLists = () => {
+const EventLists = props => {
   return (
     <section>
-      <EventList />
+      <EventList events={props.events} type="ForkEvent" />
     </section>
   );
 };

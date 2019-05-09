@@ -7,13 +7,16 @@ import "./App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "" };
+    this.state = { name: "", events: [] };
   }
 
   onSubmit = event => {
     if (event) event.preventDefault();
     const name = event.target.children[0].value;
     this.setState({ name });
+    fetch("https://api.github.com/users/" + name + "/events")
+      .then(response => response.json())
+      .then(data => this.setState({ events: data }));
   };
 
   render() {
@@ -21,7 +24,11 @@ class App extends React.Component {
 
     return (
       <main className="App">
-        {name ? <EventLists /> : <LoginForm onSubmit={this.onSubmit} />}
+        {name ? (
+          <EventLists events={this.state.events} />
+        ) : (
+          <LoginForm onSubmit={this.onSubmit} />
+        )}
       </main>
     );
   }
