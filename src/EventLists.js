@@ -1,9 +1,11 @@
 import React from "react";
 
+import EventList from "./EventList";
+
 const EventLists = () => {
   return (
     <section>
-      <h2>Lists here</h2>
+      <EventList />
     </section>
   );
 };
