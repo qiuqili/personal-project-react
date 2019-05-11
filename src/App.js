@@ -1,8 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import LoginForm from "./LoginForm";
 import EventLists from "./EventLists";
 import "./App.css";
+import { setName } from "./actions";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,14 +15,15 @@ class App extends React.Component {
   onSubmit = event => {
     if (event) event.preventDefault();
     const name = event.target.children[0].value;
-    this.setState({ name });
+    this.props.setName(name);
     fetch("https://api.github.com/users/" + name + "/events")
       .then(response => response.json())
       .then(data => this.setState({ events: data }));
   };
 
   render() {
-    const { name, events } = this.state;
+    const { events } = this.state;
+    const { name } = this.props;
 
     return (
       <main className="App">
@@ -34,4 +37,19 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    name: state.name
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setName: name => dispatch(setName(name))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
