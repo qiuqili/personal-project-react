@@ -20,9 +20,9 @@ class PullRequestStatus extends React.Component {
     return state === undefined ? (
       ""
     ) : (
-      <span>
-        {state === "closed" ? (merged ? "merged" : "closed") : "open"}
-      </span>
+      <span
+        className={state === "closed" ? (merged ? "merged" : "closed") : "open"}
+      />
     );
   }
 }

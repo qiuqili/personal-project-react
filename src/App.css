@@ -1,3 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  margin-top: 10%;
   text-align: center;
+}
+
+.App img {
+  width: 50px;
+}
+
+input {
+  width: 200px;
+}
+
+input,
+button {
+  height: 30px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+}
+
+span {
+  color: white;
+}
+
+.closed {
+  background-color: #cb2431;
+}
+
+.closed:before {
+  content: "Closed";
+}
+
+.merged {
+  background-color: #6f42c1;
+}
+
+.merged:before {
+  content: "Merged";
+}
+
+.open {
+  background-color: #2cbe4e;
+}
+
+.open:before {
+  content: "Open";
 }
