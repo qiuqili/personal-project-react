@@ -28,7 +28,7 @@ const EventList = props => {
   return (
     <ul>
       <h2>{props.type}</h2>
-      {rows}
+      {rows.length === 0 ? "No Event" : rows}
     </ul>
   );
 };

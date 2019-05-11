@@ -25,15 +25,21 @@ button {
 
 li {
   list-style: none;
+  margin-bottom: 10px;
 }
 
 a {
   margin: 10px;
   text-decoration: none;
+  color: black;
 }
 
 span {
   color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 3px;
 }
 
 .closed {
