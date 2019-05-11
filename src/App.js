@@ -20,12 +20,12 @@ class App extends React.Component {
   };
 
   render() {
-    const { name } = this.state;
+    const { name, events } = this.state;
 
     return (
       <main className="App">
         {name ? (
-          <EventLists events={this.state.events} />
+          <EventLists events={events} />
         ) : (
           <LoginForm onSubmit={this.onSubmit} />
         )}

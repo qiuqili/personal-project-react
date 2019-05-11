@@ -14,7 +14,7 @@ const EventList = props => {
               url={event.payload.pull_request.html_url}
               name={event.payload.pull_request.title}
             />
-            <PullRequestStatus />
+            <PullRequestStatus url={event.payload.pull_request.url} />
           </>
         ) : (
           <ListLink
